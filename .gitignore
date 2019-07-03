@@ -195,3 +195,7 @@ UpgradeLog*.htm
  *.feature.cs
  *.feature.xlsx.*
  *.Specs_*.html
+
+ # Ignore npm/yarn debug log
+ npm-debug.log
+ yarn-error.log

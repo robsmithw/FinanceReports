@@ -128,74 +128,70 @@ UpgradeLog*.htm
 # Temp files when opening LibreOffice on ubuntu
 .~lock.*
  
- # svn
- .svn
+# svn
+.svn
 
- # CVS - Source Control
- **/CVS/
+# CVS - Source Control
+**/CVS/
 
- # Remainings from resolving conflicts in Source Control
- *.orig
+# Remainings from resolving conflicts in Source Control
+*.orig
 
- # SQL Server files
- **/App_Data/*.mdf
- **/App_Data/*.ldf
- **/App_Data/*.sdf
+# SQL Server files
+**/App_Data/*.mdf
+**/App_Data/*.ldf
+**/App_Data/*.sdf
 
 
- #LightSwitch generated files
- GeneratedArtifacts/
- _Pvt_Extensions/
- ModelManifest.xml
+#LightSwitch generated files
+GeneratedArtifacts/
+_Pvt_Extensions/
+ModelManifest.xml
 
- # =========================
- # Windows detritus
- # =========================
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
 
- # Windows image file caches
- Thumbs.db
- ehthumbs.db
+# Folder config file
+Desktop.ini
 
- # Folder config file
- Desktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
 
- # Recycle Bin used on file shares
- $RECYCLE.BIN/
+# Mac desktop service store files
+.DS_Store
 
- # Mac desktop service store files
- .DS_Store
+# SASS Compiler cache
+.sass-cache
 
- # SASS Compiler cache
- .sass-cache
+# Visual Studio 2014 CTP
+**/*.sln.ide
 
- # Visual Studio 2014 CTP
- **/*.sln.ide
+# Visual Studio temp something
+.vs/
 
- # Visual Studio temp something
- .vs/
+# dotnet stuff
+project.lock.json
 
- # dotnet stuff
- project.lock.json
+# VS 2015+
+*.vc.vc.opendb
+*.vc.db
 
- # VS 2015+
- *.vc.vc.opendb
- *.vc.db
+# Rider
+.idea/
 
- # Rider
- .idea/
+# Visual Studio Code
+.vscode/
 
- # Visual Studio Code
- .vscode/
+# Output folder used by Webpack or other FE stuff
+**/node_modules/*
+**/wwwroot/*
 
- # Output folder used by Webpack or other FE stuff
- **/node_modules/*
- **/wwwroot/*
+# SpecFlow specific
+*.feature.cs
+*.feature.xlsx.*
+*.Specs_*.html
 
- # SpecFlow specific
- *.feature.cs
- *.feature.xlsx.*
- *.Specs_*.html
-
- # Ignore npm/yarn debug log
- npm-debug.log
- yarn-error.log
+# Ignore npm/yarn debug log
+npm-debug.log
+yarn-error.log

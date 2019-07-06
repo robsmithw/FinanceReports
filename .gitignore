@@ -128,70 +128,70 @@ UpgradeLog*.htm
 # Temp files when opening LibreOffice on ubuntu
 .~lock.*
  
-# svn
-.svn
+ # svn
+ .svn
 
-# CVS - Source Control
-**/CVS/
+ # CVS - Source Control
+ **/CVS/
 
-# Remainings from resolving conflicts in Source Control
-*.orig
+ # Remainings from resolving conflicts in Source Control
+ *.orig
 
-# SQL Server files
-**/App_Data/*.mdf
-**/App_Data/*.ldf
-**/App_Data/*.sdf
+ # SQL Server files
+ **/App_Data/*.mdf
+ **/App_Data/*.ldf
+ **/App_Data/*.sdf
 
 
-#LightSwitch generated files
-GeneratedArtifacts/
-_Pvt_Extensions/
-ModelManifest.xml
+ #LightSwitch generated files
+ GeneratedArtifacts/
+ _Pvt_Extensions/
+ ModelManifest.xml
 
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+ # =========================
+ # Windows detritus
+ # =========================
 
-# Folder config file
-Desktop.ini
+ # Windows image file caches
+ Thumbs.db
+ ehthumbs.db
 
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
+ # Folder config file
+ Desktop.ini
 
-# Mac desktop service store files
-.DS_Store
+ # Recycle Bin used on file shares
+ $RECYCLE.BIN/
 
-# SASS Compiler cache
-.sass-cache
+ # Mac desktop service store files
+ .DS_Store
 
-# Visual Studio 2014 CTP
-**/*.sln.ide
+ # SASS Compiler cache
+ .sass-cache
 
-# Visual Studio temp something
-.vs/
+ # Visual Studio 2014 CTP
+ **/*.sln.ide
 
-# dotnet stuff
-project.lock.json
+ # Visual Studio temp something
+ .vs/
 
-# VS 2015+
-*.vc.vc.opendb
-*.vc.db
+ # dotnet stuff
+ project.lock.json
 
-# Rider
-.idea/
+ # VS 2015+
+ *.vc.vc.opendb
+ *.vc.db
 
-# Visual Studio Code
-.vscode/
+ # Rider
+ .idea/
 
-# Output folder used by Webpack or other FE stuff
-**/node_modules/*
-**/wwwroot/*
+ # Visual Studio Code
+ .vscode/
 
-# SpecFlow specific
-*.feature.cs
-*.feature.xlsx.*
-*.Specs_*.html
+ # Output folder used by Webpack or other FE stuff
+ **/node_modules/*
+ **/wwwroot/*
 
-# Ignore npm/yarn debug log
-npm-debug.log
-yarn-error.log
+ # SpecFlow specific
+ *.feature.cs
+ *.feature.xlsx.*
+ *.Specs_*.html

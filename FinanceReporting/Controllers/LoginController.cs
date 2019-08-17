@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FinanceReporting.Models;
 using MySql.Data.MySqlClient;
 using Microsoft.AspNetCore.Mvc;
@@ -32,27 +29,11 @@ namespace FinanceReporting.Controllers
         public bool UserAuthed(string username, string hash)
         {
             var authenticated = false;
-            var dbCon = DatabaseModel.Instance();
-
-            //will eventually have a way to not have these hard coded
-            dbCon.User = "root";
-            dbCon.Password = "Password1";
-            dbCon.Database = "FinanceReporting";
-            if (dbCon.IsConnected())
+            var context = new FinanceReportingContext();
+            var hashFromDb = context.GetHash(username);
+            if(!String.IsNullOrEmpty(hashFromDb) && hashFromDb == hash)
             {
-                var query = String.Format("CALL `usp_AuthenticateUser`('{0}');", username);
-                var hashFromDb = String.Empty;
-                var cmd = new MySqlCommand(query, dbCon.Connection);
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    hashFromDb = reader.GetString(0);
-                }
-                dbCon.Close();
-                if(!String.IsNullOrEmpty(hashFromDb) && hashFromDb == hash)
-                {
-                    authenticated = true;
-                }
+                authenticated = true;
             }
             return authenticated;
         }
@@ -87,10 +68,11 @@ namespace FinanceReporting.Controllers
             var reqUser = model.username;
             //need to check for 8 characters, a number, and special character
             var reqPass = model.password;
+            var hash = ToMD5(reqPass);
             var firstname = model.firstName;
             var lastname = model.lastName;
             var emailAddress = model.email;
-            if(CreatedAccount(reqUser, reqPass, firstname, lastname, emailAddress))
+            if(CreatedAccount(reqUser, hash, firstname, lastname, emailAddress))
             {
                 return RedirectToAction("Login");
             }
@@ -100,27 +82,11 @@ namespace FinanceReporting.Controllers
         public bool CreatedAccount(string reqUsername, string reqPassword, string firstname, string lastname, string emailAdress)
         {
             var created = false;
-            var dbCon = DatabaseModel.Instance();
-
-            //will eventually have a way to not have these hard coded
-            dbCon.User = "root";
-            dbCon.Password = "Password1";
-            dbCon.Database = "FinanceReporting";
-            if (dbCon.IsConnected())
+            var context = new FinanceReportingContext();
+            var returnMessage = context.CreateAccount(reqUsername, reqPassword, firstname, lastname, emailAdress);
+            if (!String.IsNullOrEmpty(returnMessage) && returnMessage == "Successfully created user.")
             {
-                var query = String.Format("CALL `usp_CreateAccount`('{0}','{1}','{2}','{3}','{4}');", reqUsername, reqPassword, firstname,lastname,emailAdress);
-                var returnMessage = String.Empty;
-                var cmd = new MySqlCommand(query, dbCon.Connection);
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    returnMessage = reader.GetString(0);
-                }
-                dbCon.Close();
-                if (!String.IsNullOrEmpty(returnMessage) && returnMessage == "Successfully created user.")
-                {
-                    created = true;
-                }
+                created = true;
             }
             return created;
         }
